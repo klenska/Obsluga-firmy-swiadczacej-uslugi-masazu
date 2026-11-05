@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  # Konfiguracja bazy danych
+  db:
+    image: postgres:15-alpine
+    container_name: masaze_db
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: secretpassword
+      POSTGRES_DB: masaze_rezerwacje
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data # Zapewnia, że dane nie znikną po wyłączeniu kontenera
+
+  # Konfiguracja backendu
+  backend:
+    build: 
+      context: ./backend # Ścieżka do folderu z kodem backendu
+    container_name: masaze_backend
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USER=admin
+      - DB_PASSWORD=secretpassword
+      - DB_NAME=masaze_rezerwacje
+    depends_on:
+      - db # Backend uruchomi się dopiero po starcie bazy danych
+
+  # Konfiguracja frontendu
+  frontend:
+    build: 
+      context: ./frontend # Ścieżka do folderu z kodem frontendu
+    container_name: masaze_frontend
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+# Deklaracja wolumenu dla bazy danych
+volumes:
+  db_data:
