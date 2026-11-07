@@ -1,0 +1,9 @@
+{
+  "name": "masu-masu-spa",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Projekt A – demonstracyjny frontend systemu zarządzania gabinetem masażu",
+  "scripts": {
+    "build": "node build.js"
+  }
+}
