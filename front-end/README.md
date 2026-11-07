@@ -11,8 +11,6 @@ Do katalogu głównego repozytorium obok ISTNIEJĄCEGO pliku `Dockerfile` skopiu
 
 **Nie zastępuj ani nie usuwaj istniejącego Dockerfile.**
 
-Foldery `MATERIALY_MASAZ-25` i `zrzuty_ekranu` zawierają materiały dokumentacyjne. Możesz je załączyć do Jira/Confluence. Nie są wymagane do uruchomienia strony.
-
 ## Uruchomienie
 
 Otwórz `index.html` w przeglądarce, aby zobaczyć wersję demonstracyjną.
