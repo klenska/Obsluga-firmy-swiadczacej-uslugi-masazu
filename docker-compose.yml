@@ -1,3 +1,5 @@
+# Do edycji po otrzymaniu pliku z back-endu
+
 version: '3.8'
 
 services:
