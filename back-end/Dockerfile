@@ -1,4 +1,4 @@
-# Do uzupełnienia po uzgodnieniui z Julią
+# Do uzupełnienia po otrzymaniu pliku back-endu
 
 FROM
 WORKDIR
